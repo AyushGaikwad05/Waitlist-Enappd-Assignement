@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# WaitList Enappd Assignment 
+This project demonstrate simple waitlist page built with next.js and tailwind css, the app is frontend only, focusing on validating user input and giving clear feedback. 
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Features 
+## 1. Email Validation 
+To make sure users only enter business emails, I blocked popular generic email domains such as: 
+``` bash
+"gmail.com", "yahoo.com", "outlook.com", "icloud.com", "zohomail.com", "protonmail.com", "gmx.com"
 ```
+I used a simple check on the part of the email after @ and compared it with a list of blocked domains. If it matches, an error is shown.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 2. Text Area 
+  I tracked the textarea input using useState and displayed a live character count. A message appears if it is less than 20 characters.
+If the input is less than 20 characters, it will show an error message. also i have added a check for that message if the text is empty for that text area, then it will show that message if user type a character then text will disappear. 
 
-## Learn More
+## 3. Form Submission 
+Handled with onSubmit. When successful, the form state switches to a success message.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Problem Faced
 
-## Deploy on Vercel
+# 1.  Responsive for mobile 
+Initially, I set fixed width and height for the card, which looked fine on desktop but broke the layout on smaller screens. 
+to solve this I switched to responsive sizing using Tailwind CSS Used w-full max-w-md for the card width. Let the height adjust automatically instead of fixing it. 
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# 2. Deployment Issue 
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+I faced a deployment issue on netlify, i am  using netlify for deployement first time. i use vercel and render before for my personal projects. 
+The error was:-  Deploy failed due to an error in @netlify/plugin-nextjs plugin.
+So i install netlify plugin from npm. 
+
+then again it shows second error was regarding node.js version so i updated the Node.js version in the netlify.toml file to match the required version.
